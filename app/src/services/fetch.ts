@@ -16,4 +16,7 @@ const get = async (url: string): Promise<any> => {
 
 export default {
 	getFilms: (): any => get(`${API}films`),
+	getSeries: (): any => get(`${API}series`),
+	getSeasons: (serie: string): any => get(`${API}series/${serie}`),
+	getEpisodes: (serie: string, season: string): any => get(`${API}series/${serie}/${season}`)
 };
