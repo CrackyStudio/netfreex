@@ -54,7 +54,7 @@ const Films: React.FC = () => {
             {!showPlayer && (
                 <>
                     <div className="back-container">
-                        <Button appearance="primary" marginRight={12} iconBefore="arrow-left" onClick={() => setVideoType("")}>Retour</Button>
+                        <Button appearance="primary" marginRight={12} iconBefore="arrow-left" className="back-button" onClick={() => setVideoType("")}>Retour</Button>
                     </div>
                     <div className="list-container">
                         {ListFilms()}
