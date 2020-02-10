@@ -1,0 +1,66 @@
+.serie-image {
+    width: 208px;
+    height: 280px;
+    object-fit: fill;
+    background-color: white;
+    margin: 20px 0px;
+}
+
+.back-button {
+    margin-left: 12px;
+    justify-content: center;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-serie {
+    padding: 1em 0;
+    float: left;
+    width: 10%;
+}
+
+.content-season {
+    position: relative;
+    width: 90%;
+    max-width: 104px;
+    margin: auto;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    cursor: pointer;
+}
+
+.content-season {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 104px;
+    object-fit: fill;
+    background-color: #0788DE;
+}
+
+.content-episode {
+    position: relative;
+    width: 90%;
+    max-width: 52px;
+    margin: auto;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    cursor: pointer;
+}
+
+.content-episode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    object-fit: fill;
+    background-color: #0788DE;
+}
