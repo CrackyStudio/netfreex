@@ -43,6 +43,14 @@
     height: 104px;
     object-fit: fill;
     background-color: #0788DE;
+    /* background: -webkit-linear-gradient(left, #204e81 33%, #ffffff 33%, #ffffff 66%, #e51400 66%);
+	background: linear-gradient(to right, #204e81 33%, #ffffff 33%, #ffffff 66%, #e51400 66%); */
+}
+
+.container-season {
+    padding: 1em 0;
+    float: left;
+    width: 5%;
 }
 
 .content-episode {

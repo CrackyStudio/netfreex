@@ -81,8 +81,8 @@ const Series: React.FC = () => {
             let arr: JSX.Element[] = [];
             episodes.forEach((episode: any, idx: number) => {
                 arr.push(
-                    <div className="container-serie" key={idx} >
-                        <div className="content-serie" onClick={() => enablePlayer(true, serie, season, episode)}>
+                    <div className="container-season" key={idx} >
+                        <div className="content-episode" onClick={() => enablePlayer(true, serie, season, episode)}>
                             <div className="content-episode">
                                 <p>{episode}</p>
                             </div>
@@ -130,6 +130,9 @@ const Series: React.FC = () => {
                         <div className="list">
                             {ListEpisodes()}
                         </div>
+                        {seasons.length === 0 && (
+                            <p>Bientôt disponible !</p>
+                        )}
                     </div>
                 </>
             )}
