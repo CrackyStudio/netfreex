@@ -1,5 +1,6 @@
 # Netfreex
 [![License](https://img.shields.io/github/license/CrackyStudio/netfreex.svg)](https://github.com/CrackyStudio/netfreex) [![Status](https://img.shields.io/badge/Status-inDev-blue.svg)](https://shields.io/) [![Release date](https://img.shields.io/badge/Release_date-Unknown-inactive.svg)](https://shields.io/)
+
 Netfreex streams video contents from local folders to devices connected to the same router ...Yes you can open your ports and share your video stream, but would you?
 
 ## License
