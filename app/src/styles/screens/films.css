@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-.back-button {
-    margin-left: 12px;
-    justify-content: center;
-    text-align: center;
-}
-
 .list-container {
     margin-top: 10px;
 }
@@ -106,9 +100,5 @@
 }
 
 .player-container .back-button {
-    margin-top: 10px;
-}
-
-.back-container {
     margin-top: 10px;
 }
