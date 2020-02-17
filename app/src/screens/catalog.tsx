@@ -1,8 +1,8 @@
 import React from 'react';
-import 'styles/player.css';
-import 'styles/catalog.css';
-import Films from "components/films";
-import Series from 'components/series';
+import 'styles/components/player.css';
+import 'styles/screens/catalog.css';
+import Films from "screens/films";
+import Series from 'screens/series';
 import { useStateValue } from 'hooks/provider';
 import { Button } from 'evergreen-ui';
 
@@ -17,8 +17,8 @@ const Catalog: React.FC = () => {
         <> 
             {!videoType &&  (
                 <div className="container">
-                    <Button appearance="primary" marginRight={12} onClick={() => setVideoType("Films")}>Films</Button>
-                    <Button appearance="primary" marginRight={12} onClick={() => setVideoType("Series")}>Series</Button>
+                    <Button appearance="primary" intent="danger" margin={6} onClick={() => setVideoType("Films")}>Films</Button>
+                    <Button appearance="primary" intent="danger" margin={6} onClick={() => setVideoType("Series")}>Series</Button>
                 </div>
             )}
             {videoType === "Films" && (

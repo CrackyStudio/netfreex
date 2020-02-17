@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/main.css';
+import 'styles/app/main.css';
 import { StateProvider } from 'hooks/provider';
 import { Reducer } from 'hooks/reducer';
 import State from 'hooks/state';
