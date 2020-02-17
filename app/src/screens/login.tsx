@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import 'styles/login.css';
+import 'styles/screens/login.css';
 import { useStateValue } from 'hooks/provider';
 import { TextInput } from 'evergreen-ui';
 import ls from 'services/localstorage';
