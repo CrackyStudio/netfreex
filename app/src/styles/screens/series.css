@@ -77,6 +77,10 @@
 
 .season-tabs {
     height: 440px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
 .season-tab {
