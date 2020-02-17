@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import 'styles/player.css';
-import 'styles/films.css';
+import 'styles/components/player.css';
+import 'styles/screens/films.css';
 import fetch from 'services/fetch';
 import { useStateValue } from 'hooks/provider';
-import ReactPlayer from 'react-player';
-import { Button } from 'evergreen-ui';
+import VideoPlayer from 'components/VideoPlayer';
 
 const Films: React.FC = () => {
     const [{ films, showPlayer, playerSource }, dispatch] = useStateValue() as Array<any>;
@@ -19,10 +18,6 @@ const Films: React.FC = () => {
 
         getFilms();
     }, [dispatch])    
-
-    const setVideoType = (videoType: string) => {
-        dispatch({ key: 'videoType', value: videoType });
-    }
     
     const ListFilms = () => {      
         if (films !== undefined) {
@@ -53,23 +48,13 @@ const Films: React.FC = () => {
         <>
             {!showPlayer && (
                 <>
-                    <div className="back-container">
-                        <Button appearance="primary" marginRight={12} iconBefore="arrow-left" className="back-button" onClick={() => setVideoType("")}>Retour</Button>
-                    </div>
                     <div className="list-container">
                         {ListFilms()}
                     </div>
                 </>
             )}
             {showPlayer && (
-                <div className="player-container">
-                    <ReactPlayer playing={true} controls={true} url={playerSource} pip={true} width='50%' height='50%' config={{
-                        file: {
-                            attributes: { autoPictureInPicture: true }
-                        },
-                    }}/>
-                    <Button appearance="primary" marginRight={12} iconBefore="arrow-left" className="back-button" onClick={() => enablePlayer(false)}>Revenir au catalogue</Button>
-                </div>
+                <VideoPlayer source={playerSource}/>
             )}
         </>
     )
