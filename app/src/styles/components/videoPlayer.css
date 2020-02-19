@@ -10,6 +10,20 @@
 	background-color: black;
 }
 
-.player-container .back-button {
-    margin-top: 10px;
+.player-buttons {
+	display: flex;
+	flex-direction: row;
+	width: 640px;
+	margin-top: 10px;
+}
+
+.goback-container {
+	flex-direction: row;
+	text-align: left;
+}
+
+.download-container {
+	flex-grow: 1;
+	flex-direction: row;
+	text-align: right;
 }
