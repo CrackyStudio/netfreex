@@ -46,7 +46,7 @@ const BackButton = ({screen, text}: {screen?: string, text?: string}) => {
                 </div>
             )}
             {text && (
-                <div className="back-container">
+                <div className="back-container-text">
                     <Button appearance="primary" intent="danger" iconBefore="arrow-left" onClick={() => goBack(screen)}>{text}</Button>
                 </div>
             )}
