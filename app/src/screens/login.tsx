@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import 'styles/screens/login.css';
+import ls from 'services/localstorage';
 import { useStateValue } from 'hooks/provider';
 import { TextInput } from 'evergreen-ui';
-import ls from 'services/localstorage';
+import 'styles/screens/login.css';
 
 const Login: React.FC = () => {
     const [{ password }, dispatch] = useStateValue() as Array<any>;
@@ -10,7 +10,8 @@ const Login: React.FC = () => {
     useEffect(() => {
         const login = () => {
             const localPassword = ls.getState("password");
-            if (password === process.env.REACT_APP_USER || localPassword === process.env.REACT_APP_USER) {
+            const { REACT_APP_USER } = process.env;
+            if (password === REACT_APP_USER || localPassword === REACT_APP_USER) {
                 dispatch({ key: 'isLogged', value: true });
             }
         }
@@ -24,8 +25,8 @@ const Login: React.FC = () => {
     }
     
 	return (
-        <div className="input-container">
-            <TextInput className="input" name="user" type="password" autoFocus={true} value={password} onChange={(e: any) => setPassword(e)}/>
+        <div className="password-container">
+            <TextInput type="password" autoFocus={true} value={password} onChange={(e: any) => setPassword(e)}/>
         </div>    
     )
 };

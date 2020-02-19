@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-.list-container {
+.films-container {
     margin-top: 10px;
 }
 
-.container {
+.film-container {
     padding: 1em 0;
     float: left;
     width: 20%;
@@ -22,7 +22,7 @@
     margin-bottom: 10px;
 }
 
-.content {
+.show-content {
     position: relative;
     width: 90%;
     max-width: 208px;
@@ -31,7 +31,7 @@
     overflow-wrap: break-word;
 }
 
-.content .content-overlay {
+.show-content .show-content-overlay {
     background: rgba(0,0,0,0.7);
     position: absolute;
     height: 99%;
@@ -46,19 +46,19 @@
     transition: all 0.4s ease-in-out 0s;
 }
 
-.content:hover .content-overlay{
+.show-content:hover .show-content-overlay {
     opacity: 1;
     cursor: pointer;
 }
 
-.content-image {
+.show-content-image {
     width: 208px;
     height: 280px;
     object-fit: fill;
     background-color: white;
 }
 
-.content-details {
+.show-content-details {
     user-select: none;
     cursor: pointer;
     position: absolute;
@@ -77,13 +77,13 @@
     transition: all 0.3s ease-in-out 0s;
 }
 
-.content:hover .content-details{
+.show-content:hover .show-content-details{
     top: 50%;
     left: 50%;
     opacity: 1;
 }
 
-.content-details h1{
+.show-content-details h1{
     color: #fff;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -93,12 +93,4 @@
 
 .fadeIn-top{
     top: 20%;
-}
-
-.player-container {
-    flex-direction: column;
-}
-
-.player-container .back-button {
-    margin-top: 10px;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import 'styles/screens/dashboard.css';
-import { useStateValue } from 'hooks/provider';
 import Logo from  "media/netfreex.png";
 import Catalog from 'screens/catalog';
 import Login from 'screens/login';
+import { useStateValue } from 'hooks/provider';
+import 'styles/screens/dashboard.css';
 
 const Dashboard: React.FC = () => {
     const [{ isLogged }, dispatch] = useStateValue() as Array<any>;
@@ -14,19 +14,15 @@ const Dashboard: React.FC = () => {
         dispatch({ key: 'episodes', value: [] });
         dispatch({ key: 'seasons', value: "" });
         dispatch({ key: 'serie', value: "" });
+        dispatch({ key: 'film', value: "" });
     }
 
 	return (
         <div className="main">
-            <div className="logo-container">
-                <img src={Logo} alt="netfreex-logo" height="50px" className="logo" onClick={() => goHome()}/>
+            <div className="header">
+                <img className="logo" src={Logo} alt="netfreex-logo" onClick={() => goHome()}/>
             </div>
-            {!isLogged && (
-                <Login/>
-            )}
-            {isLogged && (
-                <Catalog/>
-            )}
+            {!isLogged ? <Login/> : <Catalog/>}
         </div>
 	);
 };

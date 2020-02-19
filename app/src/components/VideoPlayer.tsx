@@ -2,7 +2,7 @@ import 'styles/components/backButton.css'
 import React from 'react';
 import ReactPlayer from 'react-player';
 import BackButton from 'components/BackButton';
-import 'styles/components/player.css';
+import 'styles/components/videoPlayer.css';
 
 const VideoPlayer = ({source, backButton = true}: {source: string, backButton?: boolean}) => {
 	return (

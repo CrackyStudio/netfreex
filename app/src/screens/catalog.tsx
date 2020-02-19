@@ -1,10 +1,9 @@
 import React from 'react';
-import 'styles/components/player.css';
-import 'styles/screens/catalog.css';
 import Films from "screens/films";
 import Series from 'screens/series';
 import { useStateValue } from 'hooks/provider';
 import { Button } from 'evergreen-ui';
+import 'styles/screens/catalog.css';
 
 const Catalog: React.FC = () => {
     const [{ videoType }, dispatch] = useStateValue() as Array<any>;
@@ -16,7 +15,7 @@ const Catalog: React.FC = () => {
 	return (
         <> 
             {!videoType &&  (
-                <div className="container">
+                <div className="video-type-container">
                     <Button appearance="primary" intent="danger" margin={6} onClick={() => setVideoType("Films")}>Films</Button>
                     <Button appearance="primary" intent="danger" margin={6} onClick={() => setVideoType("Series")}>Series</Button>
                 </div>

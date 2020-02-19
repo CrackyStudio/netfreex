@@ -1,9 +1,9 @@
 import React from 'react';
-import 'styles/app/main.css';
-import { StateProvider } from 'hooks/provider';
-import { Reducer } from 'hooks/reducer';
 import State from 'hooks/state';
 import Dashboard from 'screens/dashboard';
+import { StateProvider } from 'hooks/provider';
+import { Reducer } from 'hooks/reducer';
+import 'styles/app/main.css';
 
 const App: React.FC = () => {
 	return (

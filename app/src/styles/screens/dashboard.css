@@ -5,11 +5,12 @@
     flex-direction: column;
 }
 
-.logo-container {
+.header {
     width: 100%;
 }
 
 .logo {
+    height: 50px;
     margin-top: 10px;
     margin-bottom: 8px;
     cursor: pointer;

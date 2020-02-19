@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import 'styles/screens/series.css';
 import fetch from 'services/fetch';
-import { useStateValue } from 'hooks/provider';
 import BackButton from 'components/BackButton';
 import VideoPlayer from 'components/VideoPlayer';
+import { useStateValue } from 'hooks/provider';
 import { Pane, Tablist, SidebarTab } from 'evergreen-ui';
+import 'styles/screens/series.css';
 
 const Series: React.FC = () => {
     const [{ series, showPlayer, playerSource, serie, seasons, season, seasonIndex, episodes, episode, episodeIndex }, dispatch] = useStateValue() as Array<any>;
@@ -42,11 +42,11 @@ const Series: React.FC = () => {
             let arr: JSX.Element[] = [];
             series.forEach((serie: any, idx: number) => {
                 arr.push(
-                    <div className="container" key={idx} >
-                        <div className="content" onClick={() => getSeasons(serie)}>     
-                            <div className="content-overlay"></div>
-                            <img className="content-image" src={`http://${serverIp}:4242/series/get/images/${serie}`} alt="serie-img"/>
-                            <div className="content-details fadeIn-top">
+                    <div className="series-container" key={idx} >
+                        <div className="show-content" onClick={() => getSeasons(serie)}>     
+                            <div className="show-content-overlay"></div>
+                            <img className="show-content-image" src={`http://${serverIp}:4242/series/get/images/${serie}`} alt="serie-img"/>
+                            <div className="show-content-details fadeIn-top">
                                 <h1>{serie}</h1>
                             </div>
                         </div>
@@ -138,12 +138,12 @@ const Series: React.FC = () => {
 	return (
         <>
             {!seasons && (
-                <div className="list-container">
+                <div>
                     {ListSeries()}
                 </div>
             )}
             {seasons && (
-                <div className="serie-container">
+                <div className="main-serie-container">
                     <BackButton screen="serie"/>
                     <img className="serie-image" src={`http://${serverIp}:4242/series/get/images/${serie}`} alt="serie-img"/>                        
                     {ListSeasons()}
