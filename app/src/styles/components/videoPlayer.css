@@ -23,7 +23,16 @@
 }
 
 .download-container {
+	display: flex;
 	flex-grow: 1;
 	flex-direction: row;
-	text-align: right;
+	justify-content: end;
+}
+
+.download {
+	margin-left: 5px;
+}
+
+.donate {
+	padding-left: 2.5px;
 }
