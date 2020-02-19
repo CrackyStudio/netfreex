@@ -37,7 +37,7 @@ const VideoPlayer = ({source, backButton = true}: {source: string, backButton?: 
                     )}
                 </div>
                 <div className="download-container">
-                    <IconButton className="donate" appearance="primary" icon="dollar" intent="success" onClick={() => donate()}/>
+                    <IconButton className={backButton ? "donate" : "donate-serie"} appearance="primary" icon="dollar" intent="success" onClick={() => donate()}/>
                     <Button className="download" appearance="primary" intent="danger" iconBefore="download" onClick={() => downloadFile()}>Télécharger</Button>
                 </div>
             </div>
