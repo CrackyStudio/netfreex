@@ -1,7 +1,7 @@
 export default {
     isLogged: false,
     password: "",
-    videoType: "",
+    category: "",
     showPlayer: false,
     playerSource: ""
 };
