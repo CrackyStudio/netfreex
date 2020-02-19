@@ -1,0 +1,31 @@
+.cs-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    height: 35px;
+    margin: 0px 10px;
+    padding: 0px 10px;
+    text-align: center;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;  
+}
+
+.cs-button:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.cs-button.active {
+    color: #E30D30;
+}
+
+.cs-button.disabled {
+    color: black;
+}
+
+.cs-button.disabled:hover {
+    cursor: default;
+}
