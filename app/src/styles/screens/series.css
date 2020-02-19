@@ -53,7 +53,12 @@
     padding-left: 60px;
 }
 
+
 .series-container {
+    margin-top: 10px;
+}
+
+.serie-container {
     padding: 1em 0;
     float: left;
     width: 20%;

@@ -42,7 +42,7 @@ const Series: React.FC = () => {
             let arr: JSX.Element[] = [];
             series.forEach((serie: any, idx: number) => {
                 arr.push(
-                    <div className="series-container" key={idx} >
+                    <div className="serie-container" key={idx} >
                         <div className="show-content" onClick={() => getSeasons(serie)}>     
                             <div className="show-content-overlay"></div>
                             <img className="show-content-image" src={`http://${serverIp}:4242/series/get/images/${serie}`} alt="serie-img"/>
@@ -138,7 +138,7 @@ const Series: React.FC = () => {
 	return (
         <>
             {!seasons && (
-                <div>
+                <div className="series-container">
                     {ListSeries()}
                 </div>
             )}
