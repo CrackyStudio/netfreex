@@ -1,22 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const API = `http://${process.env.REACT_APP_SERVER_IP}:4242/` as string;
+const { REACT_APP_SERVER_IP, REACT_APP_SERVER_PORT } = process.env;
+const API = `http://${REACT_APP_SERVER_IP}:${REACT_APP_SERVER_PORT}` as string;
 
-const get = async (url: string): Promise<any> => {
+const get = async (subUrl: string): Promise<any> => {
+	const url = `${API}/${subUrl}`
 	try {
 		const response = await fetch(url, {
 			method: 'GET',
 		});
 		return response.json();
 	} catch (errors) {
-		console.log(API)
 		console.log(errors);
-		throw errors;
 	}
 };
 
 export default {
-	getFilms: (): any => get(`${API}films`),
-	getSeries: (): any => get(`${API}series`),
-	getSeasons: (serie: string): any => get(`${API}series/${serie}`),
-	getEpisodes: (serie: string, season: string): any => get(`${API}series/${serie}/${season}`)
+	getFilms: (): any => get(`films`),
+	getSeries: (): any => get(`series`),
+	getSeasons: (serie: string): any => get(`series/${serie}`),
+	getEpisodes: (serie: string, season: string): any => get(`series/${serie}/${season}`)
 };
