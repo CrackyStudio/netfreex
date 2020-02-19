@@ -4,3 +4,22 @@
     margin-top: 10px;
     align-self: center;
 }
+
+.popcorn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.popcorn {
+    margin-left: 80px;
+    width: 333px;
+    height: auto;
+}
+
+.what-text {
+    font-size: 25px;
+}

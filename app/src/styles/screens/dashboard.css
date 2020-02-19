@@ -5,8 +5,17 @@
     flex-direction: column;
 }
 
+.header-centered {
+    width: 100%;
+}
+
 .header {
     width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .logo {
@@ -19,4 +28,6 @@
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+    margin-right: 25px;
+    background-color: #282c34;  
 }
