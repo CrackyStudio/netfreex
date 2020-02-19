@@ -24,7 +24,7 @@ const BackButton = ({screen, text}: {screen?: string, text?: string}) => {
     }
 
     const goToHome = () => {
-        dispatch({ key: 'videoType', value: "" });
+        dispatch({ key: 'category', value: "" });
     }
 
     const goToSeries = () => {
