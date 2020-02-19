@@ -6,6 +6,10 @@
 	justify-content: center;
 }
 
+.player {
+	background-color: black;
+}
+
 .player-container .back-button {
     margin-top: 10px;
 }
