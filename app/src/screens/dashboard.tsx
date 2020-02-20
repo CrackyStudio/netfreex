@@ -3,8 +3,8 @@ import mLogo from "media/moshed-logo.gif";
 import Catalog from "screens/catalog";
 import Login from "screens/login";
 import HeaderButton from "components/HeaderButton";
+import AccountBar from "components/AccountBar";
 import { useStateValue } from "hooks/provider";
-import { Avatar, IconButton } from "evergreen-ui";
 import "styles/screens/dashboard.css";
 
 const Dashboard: React.FC = () => {
@@ -33,34 +33,7 @@ const Dashboard: React.FC = () => {
 						<HeaderButton text="Series" />
 						<HeaderButton text="Musiques" enabled={false} />
 						<HeaderButton text="Apps" enabled={false} />
-						<div className="account-header">
-							<IconButton
-								className="account-icon disabled"
-								appearance="minimal"
-								icon="search"
-								intent="none"
-							/>
-							<IconButton
-								className="account-icon disabled"
-								appearance="minimal"
-								icon="history"
-								intent="none"
-							/>
-							<IconButton
-								className="account-icon disabled"
-								appearance="minimal"
-								icon="cloud-download"
-								intent="none"
-							/>
-							<IconButton
-								className="account-icon disabled"
-								appearance="minimal"
-								icon="heart"
-								intent="none"
-							/>
-							<IconButton className="account-icon" appearance="minimal" icon="log-out" intent="danger" />
-							<Avatar className="account-logo" name="Cracky Studio" size={40} isSolid color="red" />
-						</div>
+						<AccountBar />
 					</>
 				)}
 			</div>
