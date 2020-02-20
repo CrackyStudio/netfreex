@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "media/netfreex.png";
 import mLogo from "media/moshed-logo.gif";
 import Catalog from "screens/catalog";
 import Login from "screens/login";
