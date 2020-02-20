@@ -1,11 +1,11 @@
 import React from "react";
 import ls from "services/localstorage";
 import { useStateValue } from "hooks/provider";
-import { Avatar, toaster, IconButton } from "evergreen-ui";
+import { Avatar, toaster, IconButton, SearchInput } from "evergreen-ui";
 import "styles/components/accountBar.css";
 
 const AccountBar = () => {
-	const [_, dispatch] = useStateValue() as Array<any>;
+	const [{ category }, dispatch] = useStateValue() as Array<any>;
 
 	const logout = () => {
 		ls.setState("password", "");
@@ -25,7 +25,7 @@ const AccountBar = () => {
 
 	return (
 		<div className="account-header">
-			<IconButton className="account-icon disabled" appearance="minimal" icon="search" intent="none" />
+			{category && <SearchInput className="searchbar" spellcheck="false" />}
 			<IconButton className="account-icon disabled" appearance="minimal" icon="history" intent="none" />
 			<IconButton className="account-icon disabled" appearance="minimal" icon="cloud-download" intent="none" />
 			<IconButton className="account-icon disabled" appearance="minimal" icon="heart" intent="none" />
@@ -40,7 +40,7 @@ const AccountBar = () => {
 			/>
 			<Avatar
 				className="account-logo"
-				name="Cracky Studio"
+				name="F R"
 				size={40}
 				isSolid
 				color="red"
