@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { resolve, join } from "path";
-import { readdirSync, statSync, read } from "fs";
+import { readdirSync, statSync } from "fs";
+import { sortByDate } from "../utils/functions";
 
 export class Controller {
 	public index(_req: Request, res: Response) {
@@ -10,7 +11,9 @@ export class Controller {
 	}
 
 	public films(_req: Request, res: Response) {
-		const files = readdirSync(`${resolve(__dirname, "../../public/videos/films")}`);
+		const dir = `${resolve(__dirname, "../../public/videos/films")}`;
+		let files = readdirSync(dir);
+		files = sortByDate(dir, files);
 		files.forEach((film, i) => {
 			files[i] = film.replace(/\.[^/.]+$/, "");
 		});
@@ -33,7 +36,8 @@ export class Controller {
 
 	public series(_req: Request, res: Response) {
 		const path = `${resolve(__dirname, "../../public/videos/series")}`;
-		const directories = readdirSync(path).filter(f => statSync(join(path, f)).isDirectory());
+		let directories = readdirSync(path);
+		directories = sortByDate(path, directories);
 		res.json({
 			Series: directories
 		});
