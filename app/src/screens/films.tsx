@@ -53,7 +53,11 @@ const Films: React.FC = () => {
 	return (
 		<>
 			{!showPlayer && <div className="films-container">{ListFilms()}</div>}
-			{showPlayer && <VideoPlayer source={playerSource} />}
+			{showPlayer && (
+				<div className="films-vp">
+					<VideoPlayer source={playerSource} />
+				</div>
+			)}
 		</>
 	);
 };
