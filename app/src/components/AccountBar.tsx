@@ -52,7 +52,7 @@ const AccountBar = () => {
 				isSolid
 				color="red"
 				onClick={() => {
-					toaster.warning("L'utilisation des comptes n'est pas encore implémenté", {
+					toaster.warning("L'utilisation des comptes n'est pas encore implémentée", {
 						description: "Certaines fonctionnalités sont actuellement indisponibles.",
 						duration: 5
 					});
