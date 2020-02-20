@@ -5,7 +5,7 @@ import { Avatar, toaster, IconButton, SearchInput } from "evergreen-ui";
 import "styles/components/accountBar.css";
 
 const AccountBar = () => {
-	const [{ category }, dispatch] = useStateValue() as Array<any>;
+	const [{ category, searchText }, dispatch] = useStateValue() as Array<any>;
 
 	const logout = () => {
 		ls.setState("password", "");
@@ -25,7 +25,14 @@ const AccountBar = () => {
 
 	return (
 		<div className="account-header">
-			{category && <SearchInput className="searchbar" spellcheck="false" />}
+			{category && (
+				<SearchInput
+					className="searchbar"
+					spellcheck="false"
+					onChange={(e: any) => dispatch({ key: "searchText", value: e.target.value })}
+					value={searchText}
+				/>
+			)}
 			<IconButton className="account-icon disabled" appearance="minimal" icon="history" intent="none" />
 			<IconButton className="account-icon disabled" appearance="minimal" icon="cloud-download" intent="none" />
 			<IconButton className="account-icon disabled" appearance="minimal" icon="heart" intent="none" />

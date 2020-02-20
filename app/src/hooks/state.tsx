@@ -3,5 +3,6 @@ export default {
 	password: "",
 	category: "",
 	showPlayer: false,
-	playerSource: ""
+	playerSource: "",
+	searchText: ""
 };

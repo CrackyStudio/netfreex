@@ -5,7 +5,7 @@ import { useStateValue } from "hooks/provider";
 import "styles/screens/films.css";
 
 const Films: React.FC = () => {
-	const [{ films, showPlayer, playerSource }, dispatch] = useStateValue() as Array<any>;
+	const [{ films, showPlayer, playerSource, searchText }, dispatch] = useStateValue() as Array<any>;
 	const { REACT_APP_SERVER_IP } = process.env;
 
 	useEffect(() => {
@@ -22,21 +22,23 @@ const Films: React.FC = () => {
 		if (films !== undefined) {
 			let arr: JSX.Element[] = [];
 			films.forEach((film: any, idx: number) => {
-				arr.push(
-					<div className="film-container" key={idx}>
-						<div className="show-content" onClick={() => enablePlayer(true, film)}>
-							<div className="show-content-overlay"></div>
-							<img
-								className="show-content-image"
-								src={`http://${REACT_APP_SERVER_IP}:4242/films/images/${film}`}
-								alt="film-img"
-							/>
-							<div className="show-content-details fadeIn-top">
-								<h1>{film}</h1>
+				if (film.toLowerCase().includes(searchText.toLowerCase())) {
+					arr.push(
+						<div className="film-container" key={idx}>
+							<div className="show-content" onClick={() => enablePlayer(true, film)}>
+								<div className="show-content-overlay"></div>
+								<img
+									className="show-content-image"
+									src={`http://${REACT_APP_SERVER_IP}:4242/films/images/${film}`}
+									alt="film-img"
+								/>
+								<div className="show-content-details fadeIn-top">
+									<h1>{film}</h1>
+								</div>
 							</div>
 						</div>
-					</div>
-				);
+					);
+				}
 			});
 			return arr;
 		}

@@ -8,7 +8,19 @@ import "styles/screens/series.css";
 
 const Series: React.FC = () => {
 	const [
-		{ series, showPlayer, playerSource, serie, seasons, season, seasonIndex, episodes, episode, episodeIndex },
+		{
+			series,
+			showPlayer,
+			playerSource,
+			serie,
+			seasons,
+			season,
+			seasonIndex,
+			episodes,
+			episode,
+			episodeIndex,
+			searchText
+		},
 		dispatch
 	] = useStateValue() as Array<any>;
 	const serverIp = process.env.REACT_APP_SERVER_IP;
@@ -44,21 +56,23 @@ const Series: React.FC = () => {
 		if (series !== undefined) {
 			let arr: JSX.Element[] = [];
 			series.forEach((serie: any, idx: number) => {
-				arr.push(
-					<div className="serie-container" key={idx}>
-						<div className="show-content" onClick={() => getSeasons(serie)}>
-							<div className="show-content-overlay"></div>
-							<img
-								className="show-content-image"
-								src={`http://${serverIp}:4242/series/get/images/${serie}`}
-								alt="serie-img"
-							/>
-							<div className="show-content-details fadeIn-top">
-								<h1>{serie}</h1>
+				if (serie.toLowerCase().includes(searchText.toLowerCase())) {
+					arr.push(
+						<div className="serie-container" key={idx}>
+							<div className="show-content" onClick={() => getSeasons(serie)}>
+								<div className="show-content-overlay"></div>
+								<img
+									className="show-content-image"
+									src={`http://${serverIp}:4242/series/get/images/${serie}`}
+									alt="serie-img"
+								/>
+								<div className="show-content-details fadeIn-top">
+									<h1>{serie}</h1>
+								</div>
 							</div>
 						</div>
-					</div>
-				);
+					);
+				}
 			});
 			return arr;
 		}
