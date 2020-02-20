@@ -2,10 +2,10 @@ const { REACT_APP_SERVER_IP, REACT_APP_SERVER_PORT } = process.env;
 const API = `http://${REACT_APP_SERVER_IP}:${REACT_APP_SERVER_PORT}` as string;
 
 const get = async (subUrl: string): Promise<any> => {
-	const url = `${API}/${subUrl}`
+	const url = `${API}/${subUrl}`;
 	try {
 		const response = await fetch(url, {
-			method: 'GET',
+			method: "GET"
 		});
 		return response.json();
 	} catch (errors) {

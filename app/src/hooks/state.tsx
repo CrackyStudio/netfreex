@@ -1,7 +1,7 @@
 export default {
-    isLogged: false,
-    password: "",
-    category: "",
-    showPlayer: false,
-    playerSource: ""
+	isLogged: false,
+	password: "",
+	category: "",
+	showPlayer: false,
+	playerSource: ""
 };
