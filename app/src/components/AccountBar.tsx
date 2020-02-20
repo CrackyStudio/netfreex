@@ -8,9 +8,19 @@ const AccountBar = () => {
 	const [_, dispatch] = useStateValue() as Array<any>;
 
 	const logout = () => {
-		dispatch({ key: "isLogged", value: false });
 		ls.setState("password", "");
 		dispatch({ key: "password", value: "" });
+		dispatch({ key: "isLogged", value: false });
+		dispatch({ key: "showPlayer", value: false });
+		dispatch({ key: "category", value: "" });
+		dispatch({ key: "film", value: "" });
+		dispatch({ key: "serie", value: "" });
+		dispatch({ key: "seasons", value: "" });
+		dispatch({ key: "season", value: "" });
+		dispatch({ key: "seasonIndex", value: "" });
+		dispatch({ key: "episodes", value: [] });
+		dispatch({ key: "episode", value: [] });
+		dispatch({ key: "episodeIndex", value: [] });
 	};
 
 	return (
