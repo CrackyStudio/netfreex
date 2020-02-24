@@ -1,5 +1,9 @@
 ## Configuration
 
+* Create a `.env` file and fill it like this
+    ```
+        FILES_BASE=/home/yourusername/Documents/netfreex/server/public
+    ```
 * Start a new terminal in this folder and run `npm install`
 * In the same terminal, run `npm run dev`
 * Add content (films, series, images) following this pattern :
