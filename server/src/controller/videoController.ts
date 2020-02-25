@@ -7,13 +7,7 @@ require('dotenv').config()
 
 const { FILES_BASE } = process.env
 
-export class Controller {
-	public index(_req: Request, res: Response) {
-		res.json({
-			message: "Hello"
-		});
-	}
-
+export class VideoController {
 	public films(_req: Request, res: Response) {
 		const dir = normalize(FILES_BASE + "/videos/films");
 		let files = readdirSync(dir);
