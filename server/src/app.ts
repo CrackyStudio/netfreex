@@ -2,6 +2,9 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./routes";
 import * as cors from "cors";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 class App {
 	public app: express.Application;
