@@ -12,13 +12,19 @@ export class Routes {
 		app.route("/").get(this.rootController.index);
 
 		// User routes
-		/* TODO */
+		app.route("/users")
+            .get(this.userController.index)
+            .post(this.userController.create);
+        app.route("/users/:key/:value")
+            .get(this.userController.show)
+        app.route("/users/:id")
+            .put(this.userController.update)
+            .delete(this.userController.delete);
 
 		// Video routes
 		app.route("/films").get(this.videoController.films);
 		app.route("/films/:film").get(this.videoController.getFilm);
 		app.route("/films/images/:image").get(this.videoController.getFilmImage);
-
 		app.route("/series").get(this.videoController.series);
 		app.route("/series/:serie").get(this.videoController.getSeasons);
 		app.route("/series/:serie/:season").get(this.videoController.getEpisodes);
