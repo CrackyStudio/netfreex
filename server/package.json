@@ -6,10 +6,12 @@
 		"dev": "nodemon src/server.ts"
 	},
 	"devDependencies": {
+		"@types/bluebird": "^3.5.29",
 		"@types/cors": "^2.8.6",
 		"@types/express": "^4.17.2",
 		"@types/node": "^13.1.8",
 		"@types/sequelize": "^4.28.8",
+		"@types/validator": "^12.0.1",
 		"nodemon": "^2.0.2",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.7.5"
@@ -19,6 +21,7 @@
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
+		"pg": "^7.18.2",
 		"sequelize": "^5.21.5"
 	}
 }
