@@ -1,5 +1,5 @@
 import { RootController } from "../controller/rootController";
-import { UserController } from "controller/userController";
+import { UserController } from "../controller/userController";
 import { VideoController } from "../controller/videoController";
 
 export class Routes {
@@ -24,7 +24,7 @@ export class Routes {
 		app.route("/series/:serie/:season").get(this.videoController.getEpisodes);
 		app.route("/series/get/images/:image").get(this.videoController.getSerieImage);
 		app.route("/series/:serie/:season/:episode/play").get(this.videoController.getEpisode);
-		
+
 		// REFACTO: Split videos routes by 2 controllers filmController & serieController
 	}
 }
