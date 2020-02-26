@@ -7,7 +7,8 @@
 
 .header-centered {
 	width: 100%;
-	padding-left: 38px;
+	display: flex;
+	justify-content: center;
 }
 
 .header {
@@ -29,8 +30,15 @@
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	margin-right: 25px;
 	background-color: #282c34;
+}
+
+.header > .logo {
+	margin-right: 25px;
+}
+
+.header-centered > .logo {
+	margin: none;
 }
 
 .films-vp {
