@@ -1,8 +1,13 @@
 ## Configuration
 
+* Create a postgres database
 * Create a `.env` file and fill it like this
     ```
         FILES_BASE=/home/yourusername/Documents/netfreex/server/public
+        DROP_TABLES=true_or_false
+        DATABASE=your_databse_name
+        DB_USER=your_database_user
+        DB_PASS=your_database_user_password
     ```
 * Start a new terminal in this folder and run `npm install`
 * In the same terminal, run `npm run dev`
