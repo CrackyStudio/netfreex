@@ -24,8 +24,6 @@ export class UserController {
         const key: string = req.params.key;
         const value: number | string = req.params.value || parseInt(req.params.value);
 
-        console.log(`${key} - ${value}`)
-
         User.findOne<User>({
             where: {[key]: value}
         })
