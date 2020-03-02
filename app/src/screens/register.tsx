@@ -23,7 +23,14 @@ const Register: React.FC = () => {
 
     const createAccount = () => {
         fetch.createAccount({ nickname: pseudo }).then((response: any) => {
-            dispatch({ key: "secret", value: response.Secret})
+            if (response.errors) {
+                toaster.danger("Une erreur est survenue", {
+                    description: response.errors[0].message,
+                    duration: 5
+                });
+            } else {
+                dispatch({ key: "secret", value: response.Secret})
+            }        
         });
     }
 
@@ -34,6 +41,7 @@ const Register: React.FC = () => {
                     description: "Vous pouvez désormais vous connecter",
                     duration: 5
                 });
+                dispatch({ key: "secret", value: undefined});
                 dispatch({ key: "register", value: false});
             } else {
                 toaster.danger("L'authentification a échoué", {

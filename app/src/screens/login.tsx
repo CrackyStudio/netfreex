@@ -7,13 +7,17 @@ import { TextInput, toaster, Button } from "evergreen-ui";
 import "styles/screens/login.css";
 
 const Login: React.FC = () => {
-	const [{ user, passcode, register, secret }, dispatch] = useStateValue() as Array<any>;
+	const [{ user, passcode, register, secret, isLogged }, dispatch] = useStateValue() as Array<any>;
 
 	useEffect(() => {
 		const verify2FA = () => {
 			fetch.validate2FA({ token: passcode, secret }).then((response: any) => {
 				if (response === "2FA authorization succeded") {
 					dispatch({ key: "isLogged", value: true });
+					toaster.success("Vous êtes connecté", {
+						description: "Vous avez accès à l'intégralité du contenu Netfreex ! :D",
+						duration: 5
+					});
 				} else {
 					dispatch({ key: "secret", value: undefined });
 					toaster.danger("L'authentification a échoué", {
@@ -24,10 +28,10 @@ const Login: React.FC = () => {
 			});
 		}
 
-        if (secret !== undefined) {
+        if (secret !== undefined && register !== true && user !== ("" || undefined) && !isLogged) {
 			verify2FA()
 		}
-	}, [secret, passcode, dispatch]);
+	}, [secret, passcode, dispatch, isLogged, register, user]);
 	
 	const setUser = (e: any) => {
 		dispatch({ key: "user", value: e.target.value });
