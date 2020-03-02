@@ -11,6 +11,8 @@
 		"@types/react": "^16.9.0",
 		"@types/react-dom": "^16.9.0",
 		"evergreen-ui": "^4.23.0",
+		"otplib": "^12.0.1",
+		"qrcode.react": "^1.0.0",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-player": "^1.15.2",
@@ -38,6 +40,8 @@
 		]
 	},
 	"devDependencies": {
+		"@types/otplib": "^10.0.0",
+		"@types/qrcode.react": "^1.0.0",
 		"nodemon": "^2.0.2"
 	}
 }

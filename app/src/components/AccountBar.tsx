@@ -21,6 +21,8 @@ const AccountBar = () => {
 		dispatch({ key: "episodes", value: [] });
 		dispatch({ key: "episode", value: [] });
 		dispatch({ key: "episodeIndex", value: [] });
+		dispatch({ key: "secret", value: undefined });
+		dispatch({ key: "user", value: "" });
 	};
 
 	return (

@@ -19,7 +19,9 @@ export class Routes {
             .get(this.userController.show)
         app.route("/users/:id")
             .put(this.userController.update)
-            .delete(this.userController.delete);
+			.delete(this.userController.delete);
+		app.route("/validate-2FA")
+			.post(this.userController.validate);
 
 		// Video routes
 		app.route("/films").get(this.videoController.films);

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateOptions, DestroyOptions } from "sequelize";
 import { User, UserInterface } from "../models/userModel";
+import { authenticator } from 'otplib';
 
 export class UserController {
     public index(_req: Request, res: Response) {
@@ -11,12 +12,19 @@ export class UserController {
 
     public create(req: Request, res: Response) {
         const params: UserInterface = req.body;
+        params.secret = authenticator.generateSecret();
 
         User.create<User>(params)
-            .then(() => res.status(201).json({
-                User: params.nickname,
-                Message: "Successfully created"
-            }))
+            .then(async () => {
+                const user = await User.findOne<User>({
+                    where: { nickname: req.body.nickname }
+                })
+                res.status(201).json({
+                    User: params.nickname,
+                    Secret: user.secret,
+                    Message: "Successfully created"
+                })
+            })
             .catch((err: Error) => res.status(500).json(err));
     }
 
@@ -61,6 +69,17 @@ export class UserController {
         User.destroy(options)
             .then(() => res.status(204).json({ data: "success" }))
             .catch((err: Error) => res.status(500).json(err));
+    }
+
+    public validate(req: Request, res: Response) {
+        const token: string = req.body.token;
+        const secret: string = req.body.secret;
+
+        if (!authenticator.check(token, secret)) {
+            return res.status(401).json("2FA authorization failed")
+        }
+
+        res.status(200).json("2FA authorization succeded")
     }
 }
 

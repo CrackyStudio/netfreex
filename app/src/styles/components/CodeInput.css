@@ -1,0 +1,22 @@
+.login-input {
+	margin-bottom: 10px;
+}
+
+.login-input.code {
+	width: 140px;
+	letter-spacing: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+.login-input.code.filled {
+	order: none;
+	color: transparent;
+	text-shadow: 0 0 0 gray;
+	text-align: center;
+}
+
+.login-input.code.filled:focus {
+	outline: none;
+}
