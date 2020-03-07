@@ -1,4 +1,3 @@
-import Mail from "../services/mail";
 import { Request, Response } from "express";
 import { UpdateOptions, DestroyOptions } from "sequelize";
 import { User, UserInterface } from "../models/userModel";
@@ -8,29 +7,6 @@ export class UserController {
     public index(_req: Request, res: Response) {
         User.findAll<User>({})
             .then((users: Array<User>) => res.json(users))
-            .catch((err: Error) => res.status(500).json(err));
-    }
-
-    public create(req: Request, res: Response) {
-        const { GMAIL_DEST } = process.env;
-        const params: UserInterface = req.body;
-        params.secret = authenticator.generateSecret();
-
-        User.create<User>(params)
-            .then(async () => {
-                const user = await User.findOne<User>({
-                    where: { nickname: req.body.nickname }
-                })
-
-                const mail: Mail = new Mail(GMAIL_DEST, `Netfreex - Bienvenue ${user.nickname}`, `<pre>${JSON.stringify(user, null, 2)}</pre>`);
-                mail.sendMail();
-
-                res.status(201).json({
-                    User: params.nickname,
-                    Secret: user.secret,
-                    Message: "Successfully created"
-                })
-            })
             .catch((err: Error) => res.status(500).json(err));
     }
 

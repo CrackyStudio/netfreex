@@ -1,20 +1,33 @@
 import * as dotenv from "dotenv";
 import { Model, DataTypes } from "sequelize";
 import { database } from "../config/databse";
+import { hashSync, compareSync } from "bcryptjs";
 
 dotenv.config();
 
 export interface UserInterface {
     nickname: string;
     secret: string;
+    password: string;
+    role: string;
 }
 
 export class User extends Model {
     public id!: number;
     public nickname!: string;
     public secret!: string;
+    public password: string;
+    public role: string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
+
+    hashPassword() {
+        this.password = hashSync(this.password, 8);
+    }
+    
+    checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
+        return compareSync(unencryptedPassword, this.password);
+    }
 }
 
 User.init(
@@ -33,6 +46,13 @@ User.init(
             type: new DataTypes.STRING(128),
             allowNull: false,
             unique: true
+        },
+        password: {
+            type: new DataTypes.STRING(128),
+        },
+        role: {
+            type: new DataTypes.STRING(128),
+            allowNull: false
         }
     },
     {
