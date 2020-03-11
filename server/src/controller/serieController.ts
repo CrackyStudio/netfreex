@@ -7,44 +7,14 @@ require('dotenv').config()
 
 const { FILES_BASE } = process.env
 
-export class VideoController {
-	public films(_req: Request, res: Response) {
-		const dir = normalize(FILES_BASE + "/videos/films");
-		let files = readdirSync(dir);
-		files = sortByDate(dir, files);
-		files.forEach((film, i) => {
-			files[i] = film.replace(/\.[^/.]+$/, "");
-		});
-		res.json({
-			Films: files
-		});
-	}
-
-	public getFilm(req: Request, res: Response) {
-		const film: string = req.params.film;
-		const file = normalize(FILES_BASE + `/videos/films/${film}.mp4`);
-		res.download(file);
-	}
-
-	public getFilmImage(req: Request, res: Response) {
-		const image: string = req.params.image;
-		const file = normalize(FILES_BASE + `/images/films/${image}.jpg`);
-		res.download(file);
-	}
-
-	public series(_req: Request, res: Response) {
+export class SerieController {
+	public getAll(_req: Request, res: Response) {
 		const path = normalize(FILES_BASE + "/videos/series");
 		let directories = readdirSync(path);
 		directories = sortByDate(path, directories);
 		res.json({
 			Series: directories
 		});
-	}
-
-	public getSerieImage(req: Request, res: Response) {
-		const image: string = req.params.image;
-		const file = normalize(FILES_BASE + `/images/series/${image}.jpg`);
-		res.download(file);
 	}
 
 	public getSeasons(req: Request, res: Response) {
@@ -73,6 +43,12 @@ export class VideoController {
 		const season: string = req.params.season;
 		const episode: string = req.params.episode;
 		const file = normalize(FILES_BASE + `/videos/series/${serie}/${season}/${episode}.mp4`);
+		res.download(file);
+	}
+
+	public getImage(req: Request, res: Response) {
+		const image: string = req.params.serie;
+		const file = normalize(FILES_BASE + `/images/series/${image}.jpg`);
 		res.download(file);
 	}
 }
